@@ -1,0 +1,5 @@
+site_name: mkdocs sample
+theme:
+  name: material
+  palette:
+    primary: cyan
