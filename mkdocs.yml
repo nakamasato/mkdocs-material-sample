@@ -5,6 +5,7 @@ theme:
     primary: cyan
 
 markdown_extensions:
+  - pymdownx.superfences
   - pymdownx.arithmatex:
       generic: true
 

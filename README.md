@@ -1,12 +1,14 @@
 # MKDocs sample
 
-# Install
+For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+
+## Install
 
 ```
 pip install mkdocs-material
 ```
 
-# Quickstart - Create docs
+## Quickstart - Create docs
 
 1. Init MKDocs.
 
@@ -30,13 +32,13 @@ pip install mkdocs-material
 
 1. Specify a theme in `mkdocs.yml`.
 
-    ```yaml:mkdocs.yml
+    ```yaml
     site_name: My Docs
     theme:
       name: material
     ```
 
-1. Run in loca.l
+1. Run in local.
 
     ```
     mkdocs serve
@@ -62,7 +64,7 @@ pip install mkdocs-material
 
     1. Create GitHub Actions (Build docs when a new change is pushed to `main` branch).
 
-        ```yaml:.github/workflows/publish.yml
+        ```yaml
         name: publish
 
         on:
@@ -80,11 +82,13 @@ pip install mkdocs-material
               - run: pip install mkdocs-material
               - run: mkdocs gh-deploy --force
         ```
+
     1. Push the docs and GitHub Actions to `main` branch.
     1. Successfully published on https://about.nakamasato.com/mkdocs-material-sample/ (I use custom domain, the domain is http://about.nakamasato.com)
-1. (Optional) [Change theme](https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/)
 
-    You can choose a color.
+1. (Optional) [Change theme](https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/).
+
+    You can choose a color:
 
     ```yaml
     site_name: mkdocs sample
@@ -96,13 +100,24 @@ pip install mkdocs-material
 
     ![スクリーンショット 2021-11-27 11.46.58.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/7059/bf862986-7e5a-80ab-8795-c4cb286371fe.png)
 
-# Tips
+## Tips
 
-## 1. Use math equation
+### 1. Codeblock in a list
+
+Need [SuperFences](https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#snippets) extention
+
+```yaml
+markdown_extensions:
+    - pymdownx.superfences
+```
+
+Reference: https://github.com/squidfunk/mkdocs-material/issues/2639#issuecomment-834110977
+
+### 2. Use math equation
 
 1. Add [docs/javascripts/mathjax.js](docs/javascripts/mathjax.js).
 
-    ```js
+    ```javascript
     window.MathJax = {
       tex: {
         inlineMath: [["\\(", "\\)"]],
@@ -133,3 +148,17 @@ pip install mkdocs-material
       - https://polyfill.io/v3/polyfill.min.js?features=es6
       - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
     ```
+
+1. You can use equations.
+
+    Examples:
+
+    ```
+    $$
+    \sum_{i=1}^{n}
+    $$
+    ```
+
+    $$
+    \sum_{i=1}^{n}
+    $$
