@@ -6,7 +6,7 @@
 pip install mkdocs-material
 ```
 
-# Create Docs
+# Quickstart - Create docs
 
 1. Init MKDocs.
 
@@ -52,7 +52,7 @@ pip install mkdocs-material
     mkdocs build
     ```
 
-    Files will be generated under `site/` 
+    Files will be generated under `site/`
 
 1. [Publish with GitHub Pages](https://squidfunk.github.io/mkdocs-material/publishing-your-site/) (`gh-deploy` branchにPush)
 
@@ -96,3 +96,40 @@ pip install mkdocs-material
 
     ![スクリーンショット 2021-11-27 11.46.58.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/7059/bf862986-7e5a-80ab-8795-c4cb286371fe.png)
 
+# Tips
+
+## 1. Use math equation
+
+1. Add [docs/javascripts/mathjax.js](docs/javascripts/mathjax.js).
+
+    ```js
+    window.MathJax = {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        ignoreHtmlClass: ".*|",
+        processHtmlClass: "arithmatex"
+      }
+    };
+
+    document$.subscribe(() => { //
+      MathJax.typesetPromise()
+    })
+    ```
+
+1. Add the following lines to [mkdocs.yml](mkdocs.yml)
+
+    ```yaml
+    markdown_extensions:
+      - pymdownx.arithmatex:
+          generic: true
+
+    extra_javascript:
+      - javascripts/mathjax.js
+      - https://polyfill.io/v3/polyfill.min.js?features=es6
+      - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    ```
